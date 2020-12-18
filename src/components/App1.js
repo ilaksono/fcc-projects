@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import useApplicationData1 from 'hooks/useApplicationData1';
 import 'styles/Animations.scss';
 function App() {
