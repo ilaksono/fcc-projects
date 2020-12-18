@@ -71,7 +71,8 @@ const useApplicationData1 = () => {
   return {
     weather,
     convertTemp,
-    icon
+    icon,
+    cels
   };
 
 };

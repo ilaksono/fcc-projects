@@ -16,3 +16,12 @@ app.post('/api/weather', async(req, res) => {
   res.json({data: result})
 
 });
+
+app.get('/api/wiki', async (req, res) => {
+  const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=5&srsearch=${req.query.search}`
+  const data = await fetch(url)
+  const result = await data.json();
+  // console.log(result);
+  res.json({data:result.query.search});
+});
+

@@ -5,7 +5,8 @@ function App() {
   const {
     weather,
     convertTemp,
-    icon
+    icon,
+    cels
   } = useApplicationData1();
   const handleClick = () => {
     convertTemp();
@@ -17,6 +18,7 @@ function App() {
         <>
           <div onClick={handleClick} style={{ cursor: 'pointer', border: '2px solid red' }}>
             {weather.tempK}
+            {cels ? ' C': ' F'}
           </div>
           <div>
             {weather.main}
