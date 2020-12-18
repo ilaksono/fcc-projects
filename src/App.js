@@ -1,23 +1,43 @@
 import logo from './logo.svg';
-import './App.css';
-
+import useApplicationData1 from 'hooks/useApplicationData1';
+import 'styles/Animations.scss';
 function App() {
+
+  const {
+    weather,
+    convertTemp,
+    icon
+  } = useApplicationData1();
+  const handleClick = () => {
+    convertTemp();
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        weather.tempK &&
+        <>
+          <div onClick={handleClick} style={{ cursor: 'pointer', border: '2px solid red' }}>
+            {weather.tempK}
+          </div>
+          <div>
+            {weather.main}
+          </div>
+          <div>
+            {weather.description}
+          </div>
+          <div>
+            {weather.country}
+          </div>
+          <div>
+            {weather.city}
+          </div>
+          <div className='animate' >
+            <i className={icon}></i>
+
+          </div>
+
+        </>
+      }
     </div>
   );
 }
